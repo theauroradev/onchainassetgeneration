@@ -28,7 +28,7 @@ module.exports = {
     },
     hardhat: {
       forking: {
-        url: "https://mainnet.aurora.dev",
+        url: "https://testnet.aurora.dev",
         accounts: [`0x${AURORA_PRIVATE_KEY}`],
       }
     }

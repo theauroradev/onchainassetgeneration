@@ -86,21 +86,6 @@ contract FoxHen is ERC721Enumerable, Ownable {
 		return minter;
 	}
 
-	// function fulfillRandomness(bytes32 requestId, uint256 randomness) internal override {
-	// 	Minting storage minting = mintings[requestId];
-	// 	require(minting.minter != address(0));
-	// 	setSpecies(minting.tokenId, randomness);
-	// 	setTraits(minting.tokenId, randomness);
-
-	// 	address recipient = getRecipient(minting.tokenId, minting.minter, randomness);
-	// 	// there is chance that what ever you minted won't be yours
-	// 	// some fox can get it
-	// 	if (recipient != minting.minter) {
-	// 		stolenMints++;
-	// 	}
-	// 	_mint(recipient, minting.tokenId);
-	// }
-
 	// Reads
 	function eggsPrice(uint16 amount) public view returns (uint256) {
 		require(purchased + amount >= FREE_TOKENS);
@@ -143,8 +128,6 @@ contract FoxHen is ERC721Enumerable, Ownable {
 			setTraits(purchased, randomness);
 
 			address recipient = getRecipient(purchased, minter, randomness);
-			// there is chance that what ever you minted won't be yours
-			// some fox can get it
 			if (recipient != minter) {
 				stolenMints++;
 			}
